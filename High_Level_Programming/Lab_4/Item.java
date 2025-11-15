@@ -13,7 +13,7 @@ class Item {
         this.maxStackSize = maxStackSize;
         if (quantity > maxStackSize){
             this.quantity = 0;
-            System.out.println("Количество прдмета в ячейве не может превышать максимальное возможное количество");
+            System.out.println("Количество предмета в ячейке не может превышать максимальное возможное количество");
         }
         else{
             this.quantity = quantity;
@@ -23,7 +23,7 @@ class Item {
     public Item(String name, String id, int maxStackSize){
         this.name = name;
         this.id = id;
-        this.maxStackSize = maxStackSize;
+        this.maxStackSize = 1;
         this.quantity = maxStackSize;
     }
     
@@ -31,7 +31,7 @@ class Item {
         this.name = name;
         this.id = id;
         this.maxStackSize = 64;
-        this.quantity = this.maxStackSize;
+        this.quantity = 1;
     }
 
     public void setName(String name){this.name = name;}
