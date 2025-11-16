@@ -21,7 +21,7 @@ class Item {
     public Item(String name, String id, int maxStackSize) {
         this.name = name;
         this.id = id;
-        this.maxStackSize = 1;
+        this.maxStackSize = maxStackSize;
         this.quantity = maxStackSize;
     }
 
@@ -57,6 +57,14 @@ class Item {
     }
 
     public void setQuantity(int quantity) {
+        if (quantity < 0) {
+            System.out.println("Количество не может быть отрицательным");
+            return;
+        }
+        if (quantity > this.maxStackSize) {
+            System.out.println("Количество предмета в ячейке не может превышать максимальное возможное количество");
+            return;
+        }
         this.quantity = quantity;
     }
 
