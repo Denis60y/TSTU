@@ -6,13 +6,14 @@ package High_Level_Programming.Lab_4;
  * 
  * Автор: @Pitt0n
  * Дата создания: 08.11.2025
- * Версия: 0.0.5
+ * Версия: 0.0.7
  */
 
 
 public class Task1 {
     public static void main(String[] args) {
-        Food item = new Food("Яблоко", "apple", 5, 35);
-        item.getInfo();
+        Food item1 = new Food("Яблоко", "apple", 64, 5, 5, 35);
+        Player Steve = new Player(20, 10, false);
+        Steve.getInfo();
     }
 }
