@@ -1,35 +1,48 @@
 package High_Level_Programming.Lab_4;
 
-class Food extends Item{
+class Food extends Item {
     private int saturationLevel;
     private int foodLevel;
 
-    public Food(String name, String id, int maxStackSize, int quantitym, int saturationLevel, int foodLevel){
-        super(name, id, maxStackSize, quantitym);
+    public Food(String name, String id, int maxStackSize, int quantity, int saturationLevel, int foodLevel) {
+        super(name, id, maxStackSize, quantity);
         this.saturationLevel = saturationLevel;
         this.foodLevel = foodLevel;
     }
 
-    public Food(String name, String id, int maxStackSize, int saturationLevel, int foodLevel){
+    public Food(String name, String id, int maxStackSize, int saturationLevel, int foodLevel) {
         super(name, id, maxStackSize);
         this.saturationLevel = saturationLevel;
         this.foodLevel = foodLevel;
     }
 
-    public Food(String name, String id, int saturationLevel, int foodLevel){
+    public Food(String name, String id, int saturationLevel, int foodLevel) {
         super(name, id);
         this.saturationLevel = saturationLevel;
         this.foodLevel = foodLevel;
     }
 
-    public void setSaturationLevel(int saturationLevel){this.saturationLevel = saturationLevel;}
-    public int getSaturationLevel(){return saturationLevel;}
+    public void setSaturationLevel(int saturationLevel) {
+        this.saturationLevel = saturationLevel;
+    }
 
-    public void setFoodLevel(int foodLevel){this.foodLevel = foodLevel;}
-    public int getFoodLevel(){return foodLevel;}
+    public int getSaturationLevel() {
+        return saturationLevel;
+    }
 
-    public void getInfo(){
-        System.out.printf("Название предмета: %s\nID предмета: %s\nМаксимальное количество в слоте: %d\nКоличество предметов в яцейке: %d\n" + //
-                        "Насыщение еды: %d\nУтоление голода: %d\n", getName(), getId(), getMaxStackSize(), getQuantity(), saturationLevel, foodLevel);
+    public void setFoodLevel(int foodLevel) {
+        this.foodLevel = foodLevel;
+    }
+
+    public int getFoodLevel() {
+        return foodLevel;
+    }
+
+    public void getInfo() {
+        System.out.printf(
+                "Название предмета: %s\nID предмета: %s\nМаксимальное количество в слоте: %d\nКоличество предметов в яцейке: %d\n"
+                        + //
+                        "Насыщение еды: %d\nУтоление голода: %d\n",
+                getName(), getId(), getMaxStackSize(), getQuantity(), saturationLevel, foodLevel);
     }
 }
