@@ -1,8 +1,9 @@
 package High_Level_Programming.Lab_4;
 
 class Food extends Item {
-    private int saturationLevel;
-    private int foodLevel;
+    private int foodLevel; //сытость
+    private int saturationLevel;//насыщение
+    
 
     public Food(String name, String id, int maxStackSize, int quantity, int saturationLevel, int foodLevel) {
         super(name, id, maxStackSize, quantity);
@@ -37,12 +38,22 @@ class Food extends Item {
     public int getFoodLevel() {
         return foodLevel;
     }
-
+    
     public void getInfo() {
         System.out.printf(
                 "Название предмета: %s\nID предмета: %s\nМаксимальное количество в слоте: %d\nКоличество предметов в яцейке: %d\n"
                         + //
                         "Насыщение еды: %d\nУтоление голода: %d\n",
                 getName(), getId(), getMaxStackSize(), getQuantity(), saturationLevel, foodLevel);
+    }
+
+    public int eaten1(){
+        setQuantity(getQuantity()-1);
+        return saturationLevel;
+    }
+
+    public int eaten2(){
+        setQuantity(getQuantity()-1);
+        return foodLevel;
     }
 }
