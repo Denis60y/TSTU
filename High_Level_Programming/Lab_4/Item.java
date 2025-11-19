@@ -5,6 +5,7 @@ class Item {
     private String id;
     private int maxStackSize;
     private int quantity;
+    private int index;
 
     //Конструкторы
     public Item(String name, String id, int maxStackSize, int quantity) {
@@ -74,11 +75,20 @@ class Item {
         return quantity;
     }
 
+    public void setIndex(int index) {
+        this.index = index;
+    }
+
+    public int getINdex() {
+        return index;
+    }
+
+
     //Функция тотображения всей информации
     public void getInfo() {
         System.out.printf(
-                "Название предмета: %s\nID предмета: %s\nМаксимальное количество в слоте: %d\nКоличество предметов в яцейке: %d\n",
-                name, id, maxStackSize, quantity);
+                "Название предмета: %s\nID предмета: %s\nМаксимальное количество в слоте: %d\nКоличество предметов в яцейке: %d\nЯчейка в инвентаре: %d\n",
+                name, id, maxStackSize, quantity, index+1);
     }
 
     //функция выбрасывания предмета
