@@ -57,8 +57,8 @@ class Block extends Item {
     public void getInfo() {
         System.out.printf(
                 "Название предмета: %s\nID предмета: %s\nМаксимальное количество в слоте: %d\nКоличество предметов в яцейке: %d\n"
-                        + "Полный блок: %b\nПадающий блок: %b\nПрозрачный блок: %b\n",
-                getName(), getId(), getMaxStackSize(), getQuantity(), full, fall, transparency);
+                        + "Полный блок: %b\nПадающий блок: %b\nПрозрачный блок: %b\nЯчейка в инвентаре: %d\n",
+                getName(), getId(), getMaxStackSize(), getQuantity(), full, fall, transparency, getINdex()+1);
     }
 
     // Функция использования предмета
