@@ -4,11 +4,13 @@ class Player {
     private int HP;
     private int satiety;
     private boolean buff;
+    private Inventory inventory;
 
-    public Player(int HP, int satiety, boolean buff) {
+    public Player(int HP, int satiety, boolean buff, Inventory inventory) {
         this.HP = HP;
         this.satiety = satiety;
         this.buff = buff;
+        this.inventory = inventory;
     }
 
     public void setHP(int HP) {
@@ -44,36 +46,32 @@ class Player {
     }
 
     public void useFood(Food food) {
-        if (food.getQuantity() > 0) {
-            food.eaten();
-            this.HP += food.getSaturationLevel();
-            this.satiety += food.getFoodLevel();
-        } else {
-            System.out.println("Не хватает предмета");
+        food.eaten();
+        this.HP += food.getSaturationLevel();
+        this.satiety += food.getFoodLevel();
+        if (food.getQuantity() == 0){
+            inventory.deleteItem(food);
         }
     }
 
     public void drop(Item item) {
-        if (item.getQuantity() > 0) {
-            item.abandoned();
-        } else {
-            System.out.println("Не хватает предмета");
+        item.abandoned();
+        if (item.getQuantity() == 0){
+            inventory.deleteItem(item);
         }
     }
 
     public void setBlock(Block block) {
-        if (block.getQuantity() > 0) {
-            block.use();
-        } else {
-            System.out.println("Не хватает предмета");
+        block.use();
+        if (block.getQuantity() == 0){
+            inventory.deleteItem(block);
         }
     }
 
     public void hit(Tool tool) {
-        if (tool.getStrength() > 0) {
-            tool.hit();
-        } else {
-            System.out.println("Предмет сломан");
+        tool.hit();
+        if (tool.getQuantity() == 0){
+            inventory.deleteItem(tool);
         }
     }
 }
