@@ -12,7 +12,7 @@ class Player {
     private final int maxSize = 10;
     private int cursor = 0;
 
-    // констуркторы
+    // ----- констуркторы -----
     public Player(String name, int maxHP, int HP, int maxSatiety, int satiety, boolean buff) {
         this.name = name;
         this.maxHP = maxHP;
@@ -33,7 +33,7 @@ class Player {
         this.items = new Item[this.maxSize];
     }
 
-    // getter'ы и setter'ы
+    // ----- getter'ы и setter'ы -----
     public void setName(String name) {
         this.name = name;
     }
@@ -66,7 +66,7 @@ class Player {
         return buff;
     }
 
-    // работа с инвентарём
+    // ----- работа с инвентарём -----
     public void setItem(Item item, int number) {
         this.items[number] = item;
     }
@@ -90,7 +90,8 @@ class Player {
     }
 
     public void deleteItemByIndex(int number) {
-        if (0 < number && number < 10) {
+        if (0 <= number && number < maxSize) {
+            items[number].setIndex(-1);
             items[number] = null;
             for (int i = number; i + 1 < maxSize; i++) {
                 items[i] = items[i + 1];
@@ -101,7 +102,9 @@ class Player {
     }
 
     public void deleteItemByItem(Item item) {
-        items[item.getINdex()] = null;
+        int index = item.getINdex();
+        items[index].setIndex(-1);
+        items[index] = null;
         for (int i = item.getINdex(); i + 1 < maxSize; i++) {
             items[i] = items[i + 1];
         }
@@ -118,12 +121,7 @@ class Player {
         }
     }
 
-    // Получении информации о объекте класса player
-    public void getInfo() {
-        System.out.printf("HP персонажа: %d\nСытость персонажа: %d\nНаличие эффекта: %b\n", HP, satiety, buff);
-    }
-
-    // Методы класса
+    // ----- Методы класса-----
     // Метод выпить молоко и сбросить баффы
     public void drinkMilk() {
         this.buff = false;
@@ -146,6 +144,11 @@ class Player {
             return;
         }
 
+        if (item.getINdex() == -1) {
+            System.out.println("Предмета нет в инвентаре");
+            return;
+        }
+
         eatFood(food);
     }
 
@@ -153,8 +156,8 @@ class Player {
     private void eatFood(Food food) {
         food.eaten();
 
-        HP = Math.min(maxHP, food.getSaturationLevel());
-        satiety = Math.min(maxSatiety, food.getFoodLevel());
+        HP = Math.min(maxHP, HP + food.getSaturationLevel());
+        satiety = Math.min(maxSatiety, satiety + food.getFoodLevel());
         buff = food.getEnchanted();
 
         if (food.getQuantity() == 0) {
@@ -174,27 +177,57 @@ class Player {
         }
     }
 
-    // метод поставить один блок из инвентаря
-    public void setBlock(Block block) {
-        if (block.getQuantity() > 0) {
-            block.use();
-            if (block.getQuantity() == 0) {
-                deleteItemByIndex(block.getINdex());
-            }
-        } else {
+    // Метод проверки на возможность поставить
+    public void setBlock(Item item) {
+        if (!(item instanceof Block block)) {
+            System.out.println("Предмет нельзя поставить");
+            return;
+        }
+
+        if (item.getQuantity() <= 0) {
             System.out.println("Не хватает предмета");
+            return;
+        }
+
+        putBlock(block);
+    }
+
+    // метод поставить один блок из инвентаря
+    private void putBlock(Block block) {
+        block.use();
+
+        if (block.getQuantity() == 0) {
+            deleteItemByIndex(block.getINdex());
         }
     }
 
-    // метод использования инструмента
-    public void hit(Tool tool) {
-        if (tool.getStrength() > 0) {
-            tool.hit();
-            if (tool.getStrength() == 0) {
-                deleteItemByIndex(tool.getINdex());
-            }
-        } else {
-            System.out.println("Предмет сломан");
+    // Метод проверки на возможность использовать как инструмент
+    public void useTool(Item item) {
+        if (!(item instanceof Tool tool)) {
+            System.out.println("Это не иструмент");
+            return;
         }
+
+        if (tool.getStrength() <= 0) {
+            System.out.println("Предмет сломан");
+            return;
+        }
+
+        hit(tool);
+    }
+
+    // метод использования инструмента
+    private void hit(Tool tool) {
+        tool.hit();
+        if (tool.getStrength() == 0) {
+            deleteItemByIndex(tool.getINdex());
+        }
+    }
+
+    // Получении информации о объекте класса player
+    public void getInfo() {
+        System.out.printf(
+                "Максимально HP персонажа: %d\nHP персонажа: %d\nМаксимальная сытость персонажа: %d\nСытость персонажа: %d\nНаличие эффекта: %b\n",
+                maxHP, HP, maxSatiety, satiety, buff);
     }
 }
