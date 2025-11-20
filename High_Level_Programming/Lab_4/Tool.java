@@ -21,9 +21,9 @@ class Tool extends Item {
     }
 
     public void setStrength(int strength) {
-        if (strength > 0){
+        if (strength > 0) {
             this.strength = strength;
-        }else{
+        } else {
             System.out.println("Прочность предмета не может быть отрицательной или равной 0");
         }
     }
@@ -44,10 +44,10 @@ class Tool extends Item {
         System.out.printf(
                 "Название предмета: %s\nID предмета: %s\nМаксимальное количество в слоте: %d\nКоличество предметов в яцейке: %d\n"
                         + "Наносимый урон: %d\nПрочность предмета: %d\nМощность предмета%b\nЯчейка в инвентаре: %d\n",
-                getName(), getId(), getMaxStackSize(), getQuantity(), damage, strength, power, getINdex()+1);
+                getName(), getId(), getMaxStackSize(), getQuantity(), damage, strength, power, getINdex() + 1);
     }
 
-    public void hit(){
+    public void hit() {
         strength -= 1;
     }
 }

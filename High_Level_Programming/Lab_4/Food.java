@@ -6,7 +6,8 @@ class Food extends Item {
     private boolean enchanted;
 
     // Конструкторы
-    public Food(String name, String id, int maxStackSize, int quantity, int saturationLevel, int foodLevel, boolean enchanted) {
+    public Food(String name, String id, int maxStackSize, int quantity, int saturationLevel, int foodLevel,
+            boolean enchanted) {
         super(name, id, maxStackSize, quantity);
         this.saturationLevel = saturationLevel;
         this.foodLevel = foodLevel;
@@ -48,8 +49,6 @@ class Food extends Item {
         this.enchanted = false;
     }
 
-
-
     // getter'ы и setter'ы
     public void setSaturationLevel(int saturationLevel) {
         this.saturationLevel = saturationLevel;
@@ -78,9 +77,10 @@ class Food extends Item {
     // Функция тотображения всей информации
     public void getInfo() {
         System.out.printf(
-                "Название предмета: %s\nID предмета: %s\nМаксимальное количество в слоте: %d\nКоличество предметов в яцейке: %d\nЯчейка в инвентаре: %d\n" + //
-                         "Насыщение еды: %d\nУтоление голода: %d\n",
-                getName(), getId(), getMaxStackSize(), getQuantity(), saturationLevel, foodLevel, getINdex()+1);
+                "Название предмета: %s\nID предмета: %s\nМаксимальное количество в слоте: %d\nКоличество предметов в яцейке: %d\nЯчейка в инвентаре: %d\n"
+                        + //
+                        "Насыщение еды: %d\nУтоление голода: %d\n",
+                getName(), getId(), getMaxStackSize(), getQuantity(), saturationLevel, foodLevel, getINdex() + 1);
     }
 
     // функция поедания предмета

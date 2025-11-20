@@ -7,7 +7,7 @@ class Item {
     private int quantity;
     private int index;
 
-    //Конструкторы
+    // Конструкторы
     public Item(String name, String id, int maxStackSize, int quantity) {
         this.name = name;
         this.id = id;
@@ -34,7 +34,7 @@ class Item {
         this.quantity = 1;
     }
 
-    //getter'ы и setter'ы
+    // getter'ы и setter'ы
     public void setName(String name) {
         this.name = name;
     }
@@ -83,15 +83,14 @@ class Item {
         return index;
     }
 
-
-    //Функция тотображения всей информации
+    // Функция тотображения всей информации
     public void getInfo() {
         System.out.printf(
                 "Название предмета: %s\nID предмета: %s\nМаксимальное количество в слоте: %d\nКоличество предметов в яцейке: %d\nЯчейка в инвентаре: %d\n",
-                name, id, maxStackSize, quantity, index+1);
+                name, id, maxStackSize, quantity, index + 1);
     }
 
-    //функция выбрасывания предмета
+    // функция выбрасывания предмета
     public void abandoned() {
         quantity -= 1;
     }
