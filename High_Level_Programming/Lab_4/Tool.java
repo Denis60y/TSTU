@@ -74,4 +74,8 @@ class Tool extends Item {
     public void hit() {
         strength -= 1;
     }
+
+    public int сalculateSrength(){
+        return maxStrenght - strength;
+    }
 }
