@@ -8,8 +8,9 @@ class Player {
     private int maxSatiety;
     private int satiety;
     private boolean buff;
+
     private Item[] items;
-    private final int maxSize = 10;
+    private final int INVENTORY_SIZE = 10;
     private int cursor = 0;
 
     // ----- констуркторы -----
@@ -17,10 +18,10 @@ class Player {
         this.name = name;
         this.maxHP = maxHP;
         this.HP = HP;
-        this.maxSatiety = satiety;
+        this.maxSatiety = maxSatiety;
         this.satiety = satiety;
         this.buff = buff;
-        this.items = new Item[this.maxSize];
+        this.items = new Item[this.INVENTORY_SIZE];
     }
 
     public Player(String name, int HP, int satiety, boolean buff) {
@@ -30,7 +31,7 @@ class Player {
         this.maxSatiety = 10;
         this.satiety = satiety;
         this.buff = buff;
-        this.items = new Item[this.maxSize];
+        this.items = new Item[this.INVENTORY_SIZE];
     }
 
     // ----- getter'ы и setter'ы -----
@@ -80,7 +81,7 @@ class Player {
     }
 
     public void addItem(Item item) {
-        if (cursor < maxSize) {
+        if (cursor < INVENTORY_SIZE) {
             items[cursor] = item;
             item.setIndex(cursor);
             cursor++;
@@ -90,10 +91,10 @@ class Player {
     }
 
     public void deleteItemByIndex(int number) {
-        if (0 <= number && number < maxSize) {
+        if (0 <= number && number < INVENTORY_SIZE) {
             items[number].setIndex(-1);
             items[number] = null;
-            for (int i = number; i + 1 < maxSize; i++) {
+            for (int i = number; i + 1 < INVENTORY_SIZE; i++) {
                 items[i] = items[i + 1];
             }
         } else {
@@ -102,10 +103,10 @@ class Player {
     }
 
     public void deleteItemByItem(Item item) {
-        int index = item.getINdex();
+        int index = item.getIndex();
         items[index].setIndex(-1);
         items[index] = null;
-        for (int i = item.getINdex(); i + 1 < maxSize; i++) {
+        for (int i = index; i + 1 < INVENTORY_SIZE; i++) {
             items[i] = items[i + 1];
         }
     }
@@ -144,7 +145,7 @@ class Player {
             return;
         }
 
-        if (item.getINdex() == -1) {
+        if (item.getIndex() == -1) {
             System.out.println("Предмета нет в инвентаре");
             return;
         }
@@ -161,7 +162,7 @@ class Player {
         buff = food.getEnchanted();
 
         if (food.getQuantity() == 0) {
-            deleteItemByIndex(food.getINdex());
+            deleteItemByIndex(food.getIndex());
         }
     }
 
@@ -170,7 +171,7 @@ class Player {
         if (item.getQuantity() > 0) {
             item.abandoned();
             if (item.getQuantity() == 0) {
-                deleteItemByIndex(item.getINdex());
+                deleteItemByIndex(item.getIndex());
             }
         } else {
             System.out.println("Не хватает предмета");
@@ -197,7 +198,7 @@ class Player {
         block.use();
 
         if (block.getQuantity() == 0) {
-            deleteItemByIndex(block.getINdex());
+            deleteItemByIndex(block.getIndex());
         }
     }
 
@@ -220,7 +221,7 @@ class Player {
     private void hit(Tool tool) {
         tool.hit();
         if (tool.getStrength() == 0) {
-            deleteItemByIndex(tool.getINdex());
+            deleteItemByIndex(tool.getIndex());
         }
     }
 
