@@ -67,15 +67,15 @@ class Tool extends Item {
     public void getInfo() {
         System.out.printf(
                 "Название предмета: %s\nID предмета: %s\nМаксимальное количество в слоте: %d\nКоличество предметов в яцейке: %d\n"
-                        + "Наносимый урон: %d\nПрочность предмета: %d\nМощность предмета%b\nЯчейка в инвентаре: %d\n",
-                getName(), getId(), getMaxStackSize(), getQuantity(), damage, strength, power, getINdex() + 1);
+                        + "Наносимый урон: %d\nПрочность предмета: %d\nМощность предмета%d\nЯчейка в инвентаре: %d\n",
+                getName(), getId(), getMaxStackSize(), getQuantity(), damage, strength, power, getIndex() + 1);
     }
 
     public void hit() {
         strength -= 1;
     }
 
-    public int сalculateSrength(){
+    public int сalculateSrength() {
         return maxStrenght - strength;
     }
 }

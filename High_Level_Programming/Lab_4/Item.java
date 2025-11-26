@@ -79,7 +79,7 @@ class Item {
         this.index = index;
     }
 
-    public int getINdex() {
+    public int getIndex() {
         return index;
     }
 

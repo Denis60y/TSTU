@@ -77,10 +77,10 @@ class Food extends Item {
     // Функция тотображения всей информации
     public void getInfo() {
         System.out.printf(
-                "Название предмета: %s\nID предмета: %s\nМаксимальное количество в слоте: %d\nКоличество предметов в яцейке: %d\nЯчейка в инвентаре: %d\n"
+                "Название предмета: %s\nID предмета: %s\nМаксимальное количество в слоте: %d\nКоличество предметов в яцейке: %d\n"
                         + //
-                        "Насыщение еды: %d\nУтоление голода: %d\n",
-                getName(), getId(), getMaxStackSize(), getQuantity(), saturationLevel, foodLevel, getINdex() + 1);
+                        "Насыщение еды: %d\nУтоление голода: %d\nЯчейка в инвентаре: %d\n",
+                getName(), getId(), getMaxStackSize(), getQuantity(), saturationLevel, foodLevel, getIndex() + 1);
     }
 
     // функция поедания предмета
