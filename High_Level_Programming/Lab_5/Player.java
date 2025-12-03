@@ -155,7 +155,7 @@ class Player {
 
     // метод поедания еды
     private void eatFood(Food food) {
-        food.eaten();
+        food.useItem();
 
         HP = Math.min(maxHP, HP + food.getSaturationLevel());
         satiety = Math.min(maxSatiety, satiety + food.getFoodLevel());
@@ -195,7 +195,7 @@ class Player {
 
     // метод поставить один блок из инвентаря
     private void putBlock(Block block) {
-        block.use();
+        block.useItem();
 
         if (block.getQuantity() == 0) {
             deleteItemByIndex(block.getIndex());
@@ -219,7 +219,7 @@ class Player {
 
     // метод использования инструмента
     private void hit(Tool tool) {
-        tool.hit();
+        tool.useItem();
         if (tool.getStrength() == 0) {
             deleteItemByIndex(tool.getIndex());
         }
