@@ -1,6 +1,8 @@
 package High_Level_Programming.Lab_5;
 
-class Food extends Item {
+import High_Level_Programming.Lab_5.interfaces.Enchanted;
+
+class Food extends Item implements Enchanted{
     private int foodLevel; // сытость
     private int saturationLevel;// насыщение
     private boolean enchanted;
@@ -66,7 +68,7 @@ class Food extends Item {
         return foodLevel;
     }
 
-    public void setEnchantedl(boolean enchanted) {
+    public void setEnchanted(boolean enchanted) {
         this.enchanted = enchanted;
     }
 
@@ -78,13 +80,16 @@ class Food extends Item {
     public void getInfo() {
         System.out.printf(
                 "Название предмета: %s\nID предмета: %s\nМаксимальное количество в слоте: %d\nКоличество предметов в яцейке: %d\n"
-                        + //
-                        "Насыщение еды: %d\nУтоление голода: %d\nЯчейка в инвентаре: %d\n",
-                getName(), getId(), getMaxStackSize(), getQuantity(), saturationLevel, foodLevel, getIndex() + 1);
+                        + "Насыщение еды: %d\nУтоление голода: %d\nЕда с чарами: %s\nЯчейка в инвентаре: %d\n",
+                getName(), getId(), getMaxStackSize(), getQuantity(), saturationLevel, foodLevel, enchanted? "да" : "нет",getIndex() + 1);
     }
 
     // функция поедания предмета
     public void useItem() {
         setQuantity(getQuantity() - 1);
+    }
+
+    public void enchant() {
+        enchanted = true;
     }
 }

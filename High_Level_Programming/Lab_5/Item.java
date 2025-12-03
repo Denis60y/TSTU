@@ -1,6 +1,8 @@
 package High_Level_Programming.Lab_5;
 
-abstract class Item {
+import High_Level_Programming.Lab_5.interfaces.Info;
+
+abstract class Item implements Info{
     private String name;
     private String id;
     private int maxStackSize;
@@ -12,9 +14,9 @@ abstract class Item {
         this.name = name;
         this.id = id;
         this.maxStackSize = maxStackSize;
-        if (quantity > maxStackSize) {
+        if (quantity > maxStackSize || quantity < 0) {
             this.quantity = maxStackSize;
-            System.out.println("Количество предмета в ячейке не может превышать максимальное возможное количество");
+            System.out.println("Количество предмета в ячейке не может превышать максимальное возможное количество или быть отрицательным");
         } else {
             this.quantity = quantity;
         }
@@ -95,5 +97,6 @@ abstract class Item {
         quantity -= 1;
     }
 
+    //абстрактный метод на использование предмета
     public abstract void useItem();
 }
