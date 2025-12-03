@@ -78,9 +78,8 @@ class Food extends Item {
     public void getInfo() {
         System.out.printf(
                 "Название предмета: %s\nID предмета: %s\nМаксимальное количество в слоте: %d\nКоличество предметов в яцейке: %d\n"
-                        + //
-                        "Насыщение еды: %d\nУтоление голода: %d\nЯчейка в инвентаре: %d\n",
-                getName(), getId(), getMaxStackSize(), getQuantity(), saturationLevel, foodLevel, getIndex() + 1);
+                        + "Насыщение еды: %d\nУтоление голода: %d\nЕда с чарами: %d\nЯчейка в инвентаре: %d\n",
+                getName(), getId(), getMaxStackSize(), getQuantity(), saturationLevel, foodLevel, enchanted? "да" : "нет",getIndex() + 1);
     }
 
     // функция поедания предмета
