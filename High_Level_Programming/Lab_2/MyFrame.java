@@ -1,6 +1,5 @@
 package High_Level_Programming.Lab_2;
 
-import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
@@ -22,7 +21,6 @@ public class MyFrame extends JFrame implements ActionListener{
 
     public MyFrame() {
 
-        
         label1.setText("<html>Расстояние от пункта A до пункта Б (в километрах):");
         label2.setText("<html>Расстояние от пункта Б до пункта С (в километрах):");
         button.setText("Расчёт");
