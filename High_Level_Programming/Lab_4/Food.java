@@ -66,7 +66,7 @@ class Food extends Item {
         return foodLevel;
     }
 
-    public void setEnchantedl(boolean enchanted) {
+    public void setEnchanted(boolean enchanted) {
         this.enchanted = enchanted;
     }
 
@@ -78,7 +78,7 @@ class Food extends Item {
     public void getInfo() {
         System.out.printf(
                 "Название предмета: %s\nID предмета: %s\nМаксимальное количество в слоте: %d\nКоличество предметов в яцейке: %d\n"
-                        + "Насыщение еды: %d\nУтоление голода: %d\nЕда с чарами: %d\nЯчейка в инвентаре: %d\n",
+                        + "Насыщение еды: %d\nУтоление голода: %d\nЕда с чарами: %b\nЯчейка в инвентаре: %d\n",
                 getName(), getId(), getMaxStackSize(), getQuantity(), saturationLevel, foodLevel, enchanted? "да" : "нет",getIndex() + 1);
     }
 

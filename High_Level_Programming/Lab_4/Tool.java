@@ -39,7 +39,7 @@ class Tool extends Item {
         this.maxStrenght = maxStrenght;
     }
 
-    public int getMaxStrengt() {
+    public int getMaxStrength() {
         return maxStrenght;
     }
 

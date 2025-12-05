@@ -4,28 +4,32 @@ class Block extends Item {
     private boolean full;
     private boolean fall;
     private boolean transparency;
+    private int strength;
 
     // Конструкторы
     public Block(String name, String id, int maxStackSize, int quantity, boolean full, boolean fall,
-            boolean transparency) {
+            boolean transparency, int strength) {
         super(name, id, maxStackSize, quantity);
         this.full = full;
         this.fall = fall;
         this.transparency = transparency;
+        this.strength = strength;
     }
 
-    public Block(String name, String id, int maxStackSize, boolean full, boolean fall, boolean transparency) {
+    public Block(String name, String id, int maxStackSize, boolean full, boolean fall, boolean transparency, int strength) {
         super(name, id, maxStackSize);
         this.full = full;
         this.fall = fall;
         this.transparency = transparency;
+        this.strength = strength;
     }
 
-    public Block(String name, String id, boolean full, boolean fall, boolean transparency) {
+    public Block(String name, String id, boolean full, boolean fall, boolean transparency, int strength) {
         super(name, id);
         this.full = full;
         this.fall = fall;
         this.transparency = transparency;
+        this.strength = strength;
     }
 
     // getter'ы и setter'ы
@@ -53,16 +57,28 @@ class Block extends Item {
         return transparency;
     }
 
+    public void setStrength(int strength) {
+        this.strength = strength;
+    }
+
+    public int getstrength() {
+        return strength;
+    }
+
     // Функция тотображения всей информации
     public void getInfo() {
         System.out.printf(
                 "Название предмета: %s\nID предмета: %s\nМаксимальное количество в слоте: %d\nКоличество предметов в яцейке: %d\n"
-                        + "Полный блок: %b\nПадающий блок: %b\nПрозрачный блок: %b\nЯчейка в инвентаре: %d\n",
-                getName(), getId(), getMaxStackSize(), getQuantity(), full, fall, transparency, getIndex() + 1);
+                        + "Полный блок: %b\nПадающий блок: %b\nПрозрачный блок: %b\nПрочность блока: %d\nЯчейка в инвентаре: %d\n",
+                getName(), getId(), getMaxStackSize(), getQuantity(), full, fall, transparency, strength, getIndex() + 1);
     }
 
     // Функция использования предмета
     public void use() {
         setQuantity(getQuantity() - 1);
+    }
+
+    public boolean checkPossibilityBreaking(Tool tool){
+        return tool.getPower()>=strength;
     }
 }

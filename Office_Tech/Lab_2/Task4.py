@@ -112,8 +112,132 @@ add.bold = True
 text = doc.add_paragraph()
 p_fmt = text.paragraph_format
 p_fmt.first_line_indent = Cm(1.25)
+add = text.add_run("Зачем именно нужна данная работа. Что она позволяет освоить\n")
+add.font.size = Pt(14)
+
+text = doc.add_paragraph()
+p_fmt = text.paragraph_format
+p_fmt.first_line_indent = Cm(1.25)
 p_fmt.alignment = docx.enum.text.WD_ALIGN_PARAGRAPH.JUSTIFY
-add = text.add_run("Зачем именно нужна данная работа. Что она позволяет освоить")
+add = text.add_run("Задание:")
+add.font.size = Pt(14)
+add.bold = True
+
+text = doc.add_paragraph()
+p_fmt = text.paragraph_format
+p_fmt.first_line_indent = Cm(1.25)
+add = text.add_run("Вариант №n")
+add.font.size = Pt(14)
+
+text = doc.add_paragraph()
+p_fmt = text.paragraph_format
+p_fmt.first_line_indent = Cm(1.25)
+add = text.add_run("Текст задания\n")
+add.font.size = Pt(14)
+
+text = doc.add_paragraph()
+p_fmt = text.paragraph_format
+add = text.add_run("")
+add.font.size = Pt(16)
+add.bold = True
+
+text = doc.add_paragraph()
+p_fmt = text.paragraph_format
+p_fmt.first_line_indent = Cm(0.95)
+add = text.add_run("Решение:")
+add.font.size = Pt(14)
+add.bold = True
+
+text = doc.add_paragraph()
+p_fmt = text.paragraph_format
+p_fmt.first_line_indent = Cm(0.95)
+add = text.add_run("Каким способом решалась указанная выше задача. Что использовалось для её выполнения.\n")
+add.font.size = Pt(14)
+
+text = doc.add_paragraph()
+p_fmt = text.paragraph_format
+add = text.add_run("Листинг программы")
+add.font.size = Pt(14)
+add.bold = True
+
+text = doc.add_paragraph()
+p_fmt = text.paragraph_format
+add = text.add_run("")
+add.font.size = Pt(10)
+add.font.name = "Courier New"
+
+text = doc.add_paragraph()
+p_fmt = text.paragraph_format
+add = text.add_run("Код программы")
+add.font.size = Pt(12)
+add.font.name = "Consolas"
+
+text = doc.add_paragraph()
+p_fmt = text.paragraph_format
+add = text.add_run("")
+add.font.size = Pt(14)
+
+text = doc.add_paragraph()
+p_fmt = text.paragraph_format
+add = text.add_run("Результаты работы программы")
+add.font.size = Pt(14)
+add.bold = True
+
+text = doc.add_paragraph()
+p_fmt = text.paragraph_format
+p_fmt.alignment = docx.enum.text.WD_ALIGN_PARAGRAPH.CENTER
+add = text.add_run("КАРТИНКА")
+add.font.size = Pt(12)
+
+text = doc.add_paragraph()
+p_fmt = text.paragraph_format
+p_fmt.alignment = docx.enum.text.WD_ALIGN_PARAGRAPH.CENTER
+add = text.add_run("Рисунок 1. Подпись к рисунку")
+add.font.size = Pt(12)
+
+text = doc.add_paragraph()
+p_fmt = text.paragraph_format
+p_fmt.alignment = docx.enum.text.WD_ALIGN_PARAGRAPH.CENTER
+add = text.add_run("КАРТИНКА")
+add.font.size = Pt(12)
+
+text = doc.add_paragraph()
+p_fmt = text.paragraph_format
+p_fmt.alignment = docx.enum.text.WD_ALIGN_PARAGRAPH.CENTER
+add = text.add_run("Рисунок 2. Подпись к рисунку")
+add.font.size = Pt(12)
+
+text = doc.add_paragraph()
+p_fmt = text.paragraph_format
+add = text.add_run("")
+add.font.size = Pt(14)
+add.bold = True
+
+text = doc.add_paragraph()
+p_fmt = text.paragraph_format
+add = text.add_run("")
+add.font.size = Pt(14)
+add.bold = True
+add.font.name = "Courier New"
+
+text = doc.add_paragraph()
+p_fmt = text.paragraph_format
+p_fmt.first_line_indent = Cm(0.95)
+add = text.add_run("")
+add.font.size = Pt(14)
+add.bold = True
+
+text = doc.add_paragraph()
+p_fmt = text.paragraph_format
+p_fmt.first_line_indent = Cm(0.95)
+add = text.add_run("Выводы:")
+add.font.size = Pt(14)
+add.bold = True
+
+text = doc.add_paragraph()
+p_fmt = text.paragraph_format
+p_fmt.first_line_indent = Cm(0.95)
+add = text.add_run("К каким выводам вы пришли при решении данной задачи. Что освоили, что сделали, чего достигли.")
 add.font.size = Pt(14)
 
 doc.save("resources/Структура отчета.docx")

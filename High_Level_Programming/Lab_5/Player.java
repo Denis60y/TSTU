@@ -97,6 +97,9 @@ class Player {
                 items[number] = null;
                 for (int i = number; i + 1 < INVENTORY_SIZE; i++) {
                     items[i] = items[i + 1];
+                    if (items[i] != null) {
+                        items[i].setIndex(i); 
+                    }
                 }
                 cursor--;
             }

@@ -57,12 +57,20 @@ class Block extends Item {
         return transparency;
     }
 
+    public void setStrength(int strength) {
+        this.strength = strength;
+    }
+
+    public int getstrength() {
+        return strength;
+    }
+
     // Функция тотображения всей информации
     public void getInfo() {
         System.out.printf(
                 "Название предмета: %s\nID предмета: %s\nМаксимальное количество в слоте: %d\nКоличество предметов в яцейке: %d\n"
-                        + "Полный блок: %b\nПадающий блок: %b\nПрозрачный блок: %b\nЯчейка в инвентаре: %d\n",
-                getName(), getId(), getMaxStackSize(), getQuantity(), full, fall, transparency, getIndex() + 1);
+                        + "Полный блок: %b\nПадающий блок: %b\nПрозрачный блок: %b\nПрочность блока: %d\nЯчейка в инвентаре: %d\n",
+                getName(), getId(), getMaxStackSize(), getQuantity(), full, fall, transparency, strength, getIndex() + 1);
     }
 
     // Функция использования предмета

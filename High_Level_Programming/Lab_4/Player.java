@@ -24,12 +24,12 @@ class Player {
         this.items = new Item[this.INVENTORY_SIZE];
     }
 
-    public Player(String name, int maxHP, int maxSatiety, boolean buff) {
+    public Player(String name, int HP, int satiety, boolean buff) {
         this.name = name;
-        this.maxHP = maxHP;
-        this.HP = maxHP;
-        this.maxSatiety = maxSatiety;
-        this.satiety = maxSatiety;
+        this.maxHP = 20;
+        this.HP = HP;
+        this.maxSatiety = 10;
+        this.satiety = satiety;
         this.buff = buff;
         this.items = new Item[this.INVENTORY_SIZE];
     }
@@ -92,10 +92,19 @@ class Player {
 
     public void deleteItemByIndex(int number) {
         if (0 <= number && number < INVENTORY_SIZE) {
-            items[number].setIndex(-1);
-            items[number] = null;
-            for (int i = number; i + 1 < INVENTORY_SIZE; i++) {
-                items[i] = items[i + 1];
+            if (items[number] != null){
+                items[number].setIndex(-1);
+                items[number] = null;
+                for (int i = number; i + 1 < INVENTORY_SIZE; i++) {
+                    items[i] = items[i + 1];
+                    if (items[i] != null) {
+                        items[i].setIndex(i); 
+                    }
+                }
+                cursor--;
+            }
+            else{
+                System.out.println("Ошибка предмета");
             }
         } else {
             System.out.println("Нет такого предмета");
@@ -103,11 +112,11 @@ class Player {
     }
 
     public void deleteItemByItem(Item item) {
-        int index = item.getIndex();
-        items[index].setIndex(-1);
-        items[index] = null;
-        for (int i = index; i + 1 < INVENTORY_SIZE; i++) {
-            items[i] = items[i + 1];
+        if (item != null){
+            deleteItemByIndex(item.getIndex());
+        }
+        else{
+            System.out.println("Ошибка предмета");
         }
     }
 
