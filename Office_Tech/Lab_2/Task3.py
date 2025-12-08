@@ -3,8 +3,6 @@ import docx.enum.text
 from docx.shared import Cm, Mm, Pt
 from docx.enum.text import WD_LINE_SPACING
 
-doc = docx.Document()
-
 personal = []
 
 personal.append(input("Название программы ЭВМ: "))
@@ -20,6 +18,8 @@ personal.append(input("Выдан: "))
 personal.append(input("Кем: "))
 
 personal.append(input("Фамилия И.О.: "))
+
+doc = docx.Document()
 
 style = doc.styles['Normal']
 style.font.name = 'Times New Roman'
