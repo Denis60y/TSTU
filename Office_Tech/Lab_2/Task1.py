@@ -3,6 +3,8 @@ import docx.enum.text
 from docx.shared import Pt
 
 doc = docx.Document()
+style = doc.styles['Normal']
+style.font.name = 'Times New Roman'
 
 head = doc.add_paragraph()
 p_fmt = head.paragraph_format
