@@ -291,4 +291,4 @@ p_fmt.first_line_indent = Cm(0.95)
 add = text.add_run(f"{personal[13]}")
 add.font.size = Pt(14)
 
-doc.save("resources/Структура отчета.docx")
+doc.save("resources/out/2.1/Структура отчета.docx")

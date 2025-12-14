@@ -193,4 +193,4 @@ add = text.add_run("Дата __________________________")
 add.font.size = Pt(12)
 add.underline = True
 
-doc.save("resources/Согласие на обработку персональных данных.docx")
+doc.save("resources/out/2.1/Согласие на обработку персональных данных.docx")

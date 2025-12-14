@@ -39,4 +39,4 @@ for i in range(len(rows)):
     table.cell(i, 0).text = rows[i]
     table.cell(i, 1).text = col
     
-doc.save("resources/Реферат.docx")
+doc.save("resources/out/2.1/Реферат.docx")

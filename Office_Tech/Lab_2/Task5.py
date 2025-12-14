@@ -73,4 +73,4 @@ add.font.size = Pt(9)
 add.underline = True
 
 
-doc.save("resources/Студенческий.docx")
+doc.save("resources/out/2.2/Студенческий.docx")
