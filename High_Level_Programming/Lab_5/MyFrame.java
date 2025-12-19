@@ -358,24 +358,37 @@ public class MyFrame extends JFrame {
     }
     
     private void useItem(Item item) {
+    try {
+        if (item == null) {
+            throw new NullPointerException("Выбранный предмет не существует.");
+        }
+
+        // Логика использования
         if (item instanceof Food) {
             player.useFood(item);
-            JOptionPane.showMessageDialog(this, "Еда использована!");
+            JOptionPane.showMessageDialog(this, "Вы успешно поели!");
         } else if (item instanceof Tool) {
             player.useTool(item);
-            JOptionPane.showMessageDialog(this, "Инструмент использован!");
+            JOptionPane.showMessageDialog(this, "Инструмент использован.");
         } else if (item instanceof Block) {
             player.setBlock(item);
-            JOptionPane.showMessageDialog(this, "Блок поставлен!");
-        } else {
-            JOptionPane.showMessageDialog(this, 
-                "Этот предмет нельзя использовать", 
-                "Ошибка", 
-                JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Блок успешно установлен.");
         }
-        
+
+        } catch (GameMechanismException ex) {
+            // Обработка нашей логической ошибки
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Игровое предупреждение", JOptionPane.WARNING_MESSAGE);
+        } catch (NullPointerException ex) {
+            // Обработка системной ошибки (например, если предмет null)
+            JOptionPane.showMessageDialog(this, "Критическая ошибка: " + ex.getMessage(), "Ошибка", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception ex) {
+            // Универсальный перехват любых других ошибок
+            JOptionPane.showMessageDialog(this, "Произошла непредвиденная ошибка: " + ex.toString(), "Ошибка", JOptionPane.ERROR_MESSAGE);
+        } finally {
+        // Обновляем UI в любом случае
         updateInventoryDisplay();
         updatePlayerInfo();
+        }
     }
     
     private void showItemDetails() {

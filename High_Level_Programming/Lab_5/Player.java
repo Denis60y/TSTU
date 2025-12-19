@@ -1,5 +1,6 @@
 package High_Level_Programming.Lab_5;
 
+
 class Player {
     // Поля класса
     private String name;
@@ -138,25 +139,17 @@ class Player {
     }
 
     // Метод проверки на возможность употребить еду
-    public void useFood(Item item) {
+    public void useFood(Item item) throws GameMechanismException {
         if (!(item instanceof Food food)) {
-            System.out.println("Этот предмет нельзя съесть");
-            return;
+            throw new GameMechanismException("Этот предмет нельзя съесть!");
         }
 
-        if (satiety >= maxSatiety) {
-            System.out.println("Персонаж не голоден");
-            return;
+        if (getSatiety() >= 10) { // Используем константу или maxSatiety
+            throw new GameMechanismException("Персонаж уже сыт!");
         }
 
         if (item.getQuantity() <= 0) {
-            System.out.println("Не хватает предмета");
-            return;
-        }
-
-        if (item.getIndex() == -1) {
-            System.out.println("Предмета нет в инвентаре");
-            return;
+            throw new GameMechanismException("Предмет закончился!");
         }
 
         eatFood(food);
@@ -188,15 +181,13 @@ class Player {
     }
 
     // Метод проверки на возможность поставить
-    public void setBlock(Item item) {
+    public void setBlock(Item item) throws GameMechanismException {
         if (!(item instanceof Block block)) {
-            System.out.println("Предмет нельзя поставить");
-            return;
+            throw new GameMechanismException("Это не блок, его нельзя поставить!");
         }
 
         if (item.getQuantity() <= 0) {
-            System.out.println("Не хватает предмета");
-            return;
+            throw new GameMechanismException("Блоки закончились!");
         }
 
         putBlock(block);
@@ -212,20 +203,17 @@ class Player {
     }
 
     // Метод проверки на возможность использовать как инструмент
-    public void useTool(Item item) {
+    public void useTool(Item item) throws GameMechanismException {
         if (!(item instanceof Tool tool)) {
-            System.out.println("Это не иструмент");
-            return;
+            throw new GameMechanismException("Это не инструмент!");
         }
 
         if (tool.getStrength() <= 0) {
-            System.out.println("Предмет сломан");
-            return;
+         throw new GameMechanismException("Инструмент сломан!");
         }
 
         useBlock(tool);
     }
-
     // метод использования инструмента
     private void useBlock(Tool tool) {
         tool.useItem();
