@@ -1,7 +1,62 @@
 import docx
 import docx.enum.text
-from docx.shared import Cm, Mm, Pt
+from docx.shared import Cm, Mm, Pt, Inches
 from docx.enum.text import WD_LINE_SPACING
+import csv
+import os
+from datetime import datetime
+
+
+def save_to_csv(data, photos, text_photos, filename="lab_report_data.csv"):
+    fields = [
+        "Полное название организации",
+        "Название кафедры",
+        "№ лабораторной",
+        "Название дисциплины",
+        "Номер группы",
+        "Фамилия И.О. студента",
+        "Фамилия И.О. преподавателя",
+        "Год",
+        "Цель работы",
+        "Вариант лабораторной",
+        "Задание",
+        "Решение",
+        "Код программы",
+        "Количество картинок",
+        "Выводы",
+        "Дата сохранения"
+    ]
+    
+    os.makedirs(os.path.dirname(filename), exist_ok=True)
+    
+    file_exists = os.path.isfile(filename)
+    
+    with open(filename, 'a', newline='', encoding='utf-8') as csvfile:
+        writer = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        
+        if not file_exists:
+            writer.writerow(fields)
+        
+        photos_info = ""
+        for i in range(len(photos)):
+            photos_info += f"Фото{i+1}:{photos[i]}; Подпись{i+1}:{text_photos[i]}"
+            if i < len(photos) - 1:
+                photos_info += " | "
+        
+        full_data = data + [len(photos)] + [photos_info] + [datetime.now().strftime("%Y-%m-%d %H:%M:%S")]
+        
+        writer.writerow(full_data)
+    
+    print(f"Данные лабораторной работы сохранены в файл: {filename}")
+
+
+def is_valid_number(input_str, min_value=1, max_value=999):
+    """Проверяет, является ли строка числом в заданном диапазоне"""
+    if not input_str.isdigit():
+        return False
+    number = int(input_str)
+    return min_value <= number <= max_value
+
 
 personal = []
 photos = []
@@ -11,7 +66,13 @@ personal.append(input("Полное название организации: "))
 
 personal.append(input("Название кафедры: "))
 
-personal.append(input("№ лабораторной: "))
+while True:
+    lab_num = input("№ лабораторной: ")
+    if is_valid_number(lab_num, 1, 100): 
+        personal.append(lab_num)
+        break
+    else:
+        print("Ошибка! Введите номер лабораторной (число от 1 до 100)")
 
 personal.append(input("Название дисциплины: "))
 
@@ -21,7 +82,15 @@ personal.append(input("Фамилия И.О. студента: "))
 
 personal.append(input("Фамилия И.О. преподавателя: "))
 
-personal.append(input("Год: "))
+# Проверка года
+current_year = datetime.now().year
+while True:
+    year_input = input("Год: ")
+    if is_valid_number(year_input, 2000, current_year + 1):
+        personal.append(year_input)
+        break
+    else:
+        print(f"Ошибка! Введите корректный год (от 2000 до {current_year + 1})")
 
 personal.append(input("Цель работы: "))
 
@@ -33,12 +102,27 @@ personal.append(input("Решение: "))
 
 personal.append(input("Код программы: "))
 
-for i in range(int(input("Количество картинок: "))):
-    photos.append(input(f"Путь к картинке номмер{i+1}: "))
-    text_photo.append(f"Рисунок {i+1}. {input("Подписть к картинке: ")}")
+while True:
+    num_photos_input = input("Количество картинок: ")
+    if is_valid_number(num_photos_input, 0, 20): 
+        num_photos = int(num_photos_input)
+        break
+    else:
+        print("Ошибка! Введите число от 0 до 20")
+
+for i in range(num_photos):
+    while True:
+        photo_path = input(f"Путь к картинке номер {i+1}: ")
+        if os.path.exists(photo_path):
+            photos.append(photo_path)
+            text_photo.append(f"Рисунок {i+1}. {input('Подпись к картинке: ')}")
+            break
+        else:
+            print(f"Ошибка! Файл '{photo_path}' не найден. Проверьте путь.")
 
 personal.append(input("Выводы: "))
 
+save_to_csv(personal, photos, text_photo, "resources/out/2.1/lab_report_data.csv")
 
 doc = docx.Document()
 
@@ -221,17 +305,33 @@ add.font.size = Pt(14)
 add.bold = True
 
 for i in range(len(photos)):
-    text = doc.add_paragraph()
-    p_fmt = text.paragraph_format
-    p_fmt.alignment = docx.enum.text.WD_ALIGN_PARAGRAPH.CENTER
-    add = text.add_run(f"{photos[i]}")
-    add.font.size = Pt(12)
+    try:
+        para = doc.add_paragraph()
+        p_fmt = para.paragraph_format
+        p_fmt.alignment = docx.enum.text.WD_ALIGN_PARAGRAPH.CENTER
+        
+        run = para.add_run()
+        run.add_picture(photos[i], width=Inches(5))
+        
+        caption = doc.add_paragraph()
+        p_fmt = caption.paragraph_format
+        p_fmt.alignment = docx.enum.text.WD_ALIGN_PARAGRAPH.CENTER
+        add = caption.add_run(f"{text_photo[i]}")
+        add.font.size = Pt(12)
+        
+    except Exception as e:
+        print(f"Ошибка при вставке изображения {photos[i]}: {e}")
+        text = doc.add_paragraph()
+        p_fmt = text.paragraph_format
+        p_fmt.alignment = docx.enum.text.WD_ALIGN_PARAGRAPH.CENTER
+        add = text.add_run(f"Не удалось загрузить изображение: {photos[i]}")
+        add.font.size = Pt(12)
 
-    text = doc.add_paragraph()
-    p_fmt = text.paragraph_format
-    p_fmt.alignment = docx.enum.text.WD_ALIGN_PARAGRAPH.CENTER
-    add = text.add_run(f"{text_photo[i]}")
-    add.font.size = Pt(12)
+        text = doc.add_paragraph()
+        p_fmt = text.paragraph_format
+        p_fmt.alignment = docx.enum.text.WD_ALIGN_PARAGRAPH.CENTER
+        add = text.add_run(f"{text_photo[i]}")
+        add.font.size = Pt(12)
 
 text = doc.add_paragraph()
 p_fmt = text.paragraph_format

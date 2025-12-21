@@ -1,13 +1,10 @@
 import pandas as pd
 import PyPDF2
-from openpyxl import Workbook
-from openpyxl.styles import Alignment
 
 # Названия стобцов
 title = ['Название', 'Авторы', 'регистрационный номер', 'номер заявки', 'правообладатель', 'дата поступления', 'дата регистрации', 'полный путь до файла']
 
 # Путь к первому файлц(текстовому)
-# Вставьте свой
 path1 = 'resources/input/Текстовый формат/Виртуальная установка «Поршневой компрессор».PDF'
 
 # Открытие файла
@@ -71,10 +68,7 @@ for i in range(len(title)):
 
 df = pd.DataFrame([data])
 
-# ДАЛЬШЕ ДИПСИК
-
 # Сохраняем в Excel с помощью ExcelWriter
-# вставьте свой путь
 with pd.ExcelWriter('resources/out/4.2/task4.2.xlsx', engine='openpyxl') as writer:
     df.to_excel(writer, index=False, sheet_name='Sheet1')
     

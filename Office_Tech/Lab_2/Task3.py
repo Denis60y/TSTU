@@ -2,6 +2,52 @@ import docx
 import docx.enum.text
 from docx.shared import Cm, Mm, Pt
 from docx.enum.text import WD_LINE_SPACING
+import csv
+import os
+from datetime import datetime
+
+
+def save_to_csv(data, filename="user_data.csv"):
+    fields = [
+        "Название программы ЭВМ",
+        "Фамилия Имя Отчество",
+        "Адрес прописки",
+        "Паспорт",
+        "Дата выдачи паспорта",
+        "Кем выдан паспорт",
+        "Фамилия И.О. (подпись)",
+        "Дата сохранения"
+    ]
+    
+    os.makedirs(os.path.dirname(filename), exist_ok=True)
+    
+    file_exists = os.path.isfile(filename)
+    
+    with open(filename, 'a', newline='', encoding='utf-8') as csvfile:
+        writer = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        
+        if not file_exists:
+            writer.writerow(fields)
+        
+        data_with_date = data + [datetime.now().strftime("%Y-%m-%d %H:%M:%S")]
+        
+        writer.writerow(data_with_date)
+    
+    print(f"Данные сохранены в файл: {filename}")
+
+def is_valid_date(date_str):
+    if len(date_str) != 10:
+        return False
+    
+    if date_str[2] != '.' or date_str[5] != '.':
+        return False
+    
+    for i in range(10):
+        if i not in [2, 5]: 
+            if not date_str[i].isdigit():
+                return False
+    
+    return True
 
 personal = []
 
@@ -13,11 +59,19 @@ personal.append(input("Адрес прописки: "))
 
 personal.append(input("Паспорт: "))
 
-personal.append(input("Выдан: "))
+while True:
+    date_input = input("Выдан (в формате ДД.ММ.ГГГГ): ")
+    if is_valid_date(date_input):
+        personal.append(date_input)
+        break
+    else:
+        print("Ошибка! Введите дату в формате ДД.ММ.ГГГГ (например: 15.05.2020)")
 
 personal.append(input("Кем: "))
 
 personal.append(input("Фамилия И.О.: "))
+
+save_to_csv(personal, "resources/out/2.1/agreement_data.csv")
 
 doc = docx.Document()
 
