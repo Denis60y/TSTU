@@ -1,0 +1,14 @@
+D:\TSTU\4-semestr\OOP\Lab_3\Task2\Task2\Task2\bin\Debug\net10.0\Task2.exe
+D:\TSTU\4-semestr\OOP\Lab_3\Task2\Task2\Task2\bin\Debug\net10.0\Task2.deps.json
+D:\TSTU\4-semestr\OOP\Lab_3\Task2\Task2\Task2\bin\Debug\net10.0\Task2.runtimeconfig.json
+D:\TSTU\4-semestr\OOP\Lab_3\Task2\Task2\Task2\bin\Debug\net10.0\Task2.dll
+D:\TSTU\4-semestr\OOP\Lab_3\Task2\Task2\Task2\bin\Debug\net10.0\Task2.pdb
+D:\TSTU\4-semestr\OOP\Lab_3\Task2\Task2\Task2\obj\Debug\net10.0\Task2.GeneratedMSBuildEditorConfig.editorconfig
+D:\TSTU\4-semestr\OOP\Lab_3\Task2\Task2\Task2\obj\Debug\net10.0\Task2.AssemblyInfoInputs.cache
+D:\TSTU\4-semestr\OOP\Lab_3\Task2\Task2\Task2\obj\Debug\net10.0\Task2.AssemblyInfo.cs
+D:\TSTU\4-semestr\OOP\Lab_3\Task2\Task2\Task2\obj\Debug\net10.0\Task2.csproj.CoreCompileInputs.cache
+D:\TSTU\4-semestr\OOP\Lab_3\Task2\Task2\Task2\obj\Debug\net10.0\Task2.dll
+D:\TSTU\4-semestr\OOP\Lab_3\Task2\Task2\Task2\obj\Debug\net10.0\refint\Task2.dll
+D:\TSTU\4-semestr\OOP\Lab_3\Task2\Task2\Task2\obj\Debug\net10.0\Task2.pdb
+D:\TSTU\4-semestr\OOP\Lab_3\Task2\Task2\Task2\obj\Debug\net10.0\Task2.genruntimeconfig.cache
+D:\TSTU\4-semestr\OOP\Lab_3\Task2\Task2\Task2\obj\Debug\net10.0\ref\Task2.dll
