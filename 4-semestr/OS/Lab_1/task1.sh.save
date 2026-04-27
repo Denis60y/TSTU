@@ -1,0 +1,9 @@
+2echo "Имя пользователя:$ $USER"
+echo "Имя Компьютера: $(hostname)"
+pwd
+echo "Версия ядра Linux: $(uname -r)"
+echo "Версия дистрибутива: $(nixos-version)"
+echo "ОЗУ:"
+free -h | grep Mem
+echo "Диск: "
+df -h / | awk 'NR==2 {print "Занято: " $5 ", Свободно: " $4}'
