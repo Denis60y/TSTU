@@ -15,6 +15,16 @@ namespace Task2
     {
         private Bitmap bmp;
 
+        private Bitmap backgroundBmp; 
+        private bool shapeIsDrawn = false; 
+
+        private string lastShapeType;
+        private Color lastPenColor;
+        private float lastPenThickness;
+        private Color lastFillColor;
+        private bool lastDoFill;
+        private bool lastDrawOutline;
+
         public Form1()
         {
 
@@ -24,6 +34,7 @@ namespace Task2
             comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox3.DropDownStyle = ComboBoxStyle.DropDownList;
 
+            comboBox1.Items.Add("Отсутствует");
             comboBox1.Items.Add(Color.Yellow);
             comboBox1.Items.Add(Color.Red);
             comboBox1.Items.Add(Color.Green);
@@ -35,6 +46,7 @@ namespace Task2
             comboBox2.Items.AddRange(new string[] {"Прямая", "Окружность", "Прямоугольник"});
             comboBox2.SelectedIndex = 0;
 
+            comboBox3.Items.Add("Отсутствует");
             comboBox3.Items.Add(Color.Yellow);
             comboBox3.Items.Add(Color.Red);
             comboBox3.Items.Add(Color.Green);
@@ -42,7 +54,6 @@ namespace Task2
             comboBox3.Items.Add(Color.Black);
             comboBox3.Items.Add(Color.Purple);
             comboBox3.SelectedIndex = 0;
-
 
         }
 
@@ -65,6 +76,9 @@ namespace Task2
 
                 pictureBox1.Image = bmp;
 
+                backgroundBmp = new Bitmap(bmp);
+                shapeIsDrawn = false; 
+
             }
         }
 
@@ -81,6 +95,9 @@ namespace Task2
                         Gray);
                     bmp.SetPixel(i, j, p);
                 }
+
+            backgroundBmp = new Bitmap(bmp); 
+
             Refresh();
 
         }
@@ -126,6 +143,8 @@ namespace Task2
                     bmp.SetPixel(i, j, p);
                 }
 
+            backgroundBmp = new Bitmap(bmp); 
+
             Refresh();
         }
 
@@ -162,11 +181,105 @@ namespace Task2
             }
         }
 
-        private void pictureBox1_Paint(object sender, PaintEventArgs e)
+        private void UpdateDrawing()
         {
-            Pen myPen = new Pen(Color.Red, 2);
-            
+            if (backgroundBmp == null || !shapeIsDrawn) return;
 
+            Bitmap tempBmp = new Bitmap(backgroundBmp);
+
+            using (Graphics g = Graphics.FromImage(tempBmp))
+            {
+                g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+
+                g.TranslateTransform(tempBmp.Width / 2 + trackBar1.Value, tempBmp.Height / 2 + trackBar2.Value);
+                g.RotateTransform(trackBar5.Value);
+
+                float sX = trackBar3.Value / 100f;
+                float sY = trackBar4.Value / 100f;
+                g.ScaleTransform(sX <= 0 ? 0.01f : sX, sY <= 0 ? 0.01f : sY);
+
+                using (Pen pen = new Pen(lastPenColor, lastPenThickness))
+                using (Brush brush = new SolidBrush(lastFillColor))
+                {
+                    int size = 100;
+                    int r = -size / 2;
+
+                    if (lastShapeType == "Прямоугольник")
+                    {
+                        if (lastDoFill) g.FillRectangle(brush, r, r, size, size);
+                        if (lastDrawOutline) g.DrawRectangle(pen, r, r, size, size);
+                    }
+                    else if (lastShapeType == "Окружность")
+                    {
+                        if (lastDoFill) g.FillEllipse(brush, r, r, size, size);
+                        if (lastDrawOutline) g.DrawEllipse(pen, r, r, size, size);
+                    }
+                    else if (lastShapeType == "Прямая")
+                    {
+                        if (lastDrawOutline) g.DrawLine(pen, r, 0, r + size, 0);
+                    }
+                }
+            }
+
+            if (pictureBox1.Image != null && pictureBox1.Image != backgroundBmp)
+                pictureBox1.Image.Dispose();
+
+            bmp = tempBmp;
+            pictureBox1.Image = bmp;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (backgroundBmp == null)
+            {
+                if (bmp != null) backgroundBmp = new Bitmap(bmp);
+                else { MessageBox.Show("Загрузите изображение!"); return; }
+            }
+
+            lastShapeType = comboBox2.SelectedItem.ToString();
+
+            lastDrawOutline = comboBox1.SelectedIndex > 0; 
+            if (lastDrawOutline)
+                lastPenColor = (Color)comboBox1.SelectedItem;
+            else
+                lastPenColor = Color.Transparent;
+
+            lastDoFill = comboBox3.SelectedIndex > 0; 
+            if (lastDoFill)
+                lastFillColor = (Color)comboBox3.SelectedItem;
+            else
+                lastFillColor = Color.Transparent;
+
+            if (!float.TryParse(textBox1.Text, out lastPenThickness))
+                lastPenThickness = 2f;
+
+            shapeIsDrawn = true;
+            UpdateDrawing();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (bmp == null || !shapeIsDrawn) return;
+
+            backgroundBmp = new Bitmap(bmp);
+
+            shapeIsDrawn = false;
+
+            ResetTrackBars();
+        }
+
+        private void trackBar_Scroll(object sender, EventArgs e)
+        {
+            UpdateDrawing();
+        }
+
+        private void ResetTrackBars()
+        {
+            trackBar1.Value = 0;   
+            trackBar2.Value = 0;   
+            trackBar3.Value = 100; 
+            trackBar4.Value = 100; 
+            trackBar5.Value = 0;   
         }
     }
 }
