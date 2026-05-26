@@ -1,0 +1,15 @@
+D:\TSTU\4-semestr\OOP\Lab_9\Task2\Task2\Task2\bin\Debug\Task2.exe.config
+D:\TSTU\4-semestr\OOP\Lab_9\Task2\Task2\Task2\bin\Debug\Task2.exe
+D:\TSTU\4-semestr\OOP\Lab_9\Task2\Task2\Task2\bin\Debug\Task2.pdb
+D:\TSTU\4-semestr\OOP\Lab_9\Task2\Task2\Task2\obj\Debug\Task2.csproj.AssemblyReference.cache
+D:\TSTU\4-semestr\OOP\Lab_9\Task2\Task2\Task2\obj\Debug\MainWindow.g.cs
+D:\TSTU\4-semestr\OOP\Lab_9\Task2\Task2\Task2\obj\Debug\App.g.cs
+D:\TSTU\4-semestr\OOP\Lab_9\Task2\Task2\Task2\obj\Debug\Task2_MarkupCompile.cache
+D:\TSTU\4-semestr\OOP\Lab_9\Task2\Task2\Task2\obj\Debug\Task2_MarkupCompile.lref
+D:\TSTU\4-semestr\OOP\Lab_9\Task2\Task2\Task2\obj\Debug\MainWindow.baml
+D:\TSTU\4-semestr\OOP\Lab_9\Task2\Task2\Task2\obj\Debug\Task2.g.resources
+D:\TSTU\4-semestr\OOP\Lab_9\Task2\Task2\Task2\obj\Debug\Task2.Properties.Resources.resources
+D:\TSTU\4-semestr\OOP\Lab_9\Task2\Task2\Task2\obj\Debug\Task2.csproj.GenerateResource.cache
+D:\TSTU\4-semestr\OOP\Lab_9\Task2\Task2\Task2\obj\Debug\Task2.csproj.CoreCompileInputs.cache
+D:\TSTU\4-semestr\OOP\Lab_9\Task2\Task2\Task2\obj\Debug\Task2.exe
+D:\TSTU\4-semestr\OOP\Lab_9\Task2\Task2\Task2\obj\Debug\Task2.pdb

@@ -1,0 +1,244 @@
+﻿<Window x:Class="Task2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Task2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="500"
+        ResizeMode="NoResize">
+    <Canvas Background="Red">
+        <Ellipse Panel.ZIndex="5" Fill="Black" Width="250" Height="250" Canvas.Left="125" Canvas.Top="117" HorizontalAlignment="Left" VerticalAlignment="Top"></Ellipse>
+
+        <Rectangle Panel.ZIndex="5" Fill="DarkBlue" Width="283" Height="114" Canvas.Left="-132" Canvas.Top="329" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="62.907"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
+        <Rectangle Panel.ZIndex="5" Fill="Blue" Width="283" Height="114" Canvas.Top="329" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="344">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="117.093"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
+        <Rectangle Fill="Black" Width="5" Height="500" Canvas.Left="245" Canvas.Top="-8"></Rectangle>
+        <Rectangle Fill="Black" Width="5" Height="500" Canvas.Left="120" Canvas.Top="-16"></Rectangle>
+        <Rectangle Fill="Black" Width="5" Height="500" Canvas.Left="58" Canvas.Top="-16"></Rectangle>
+        <Rectangle Fill="Black" Width="5" Height="500" Canvas.Left="431"/>
+        <Rectangle Fill="Black" Width="5" Height="500" Canvas.Left="375" Canvas.Top="-8" HorizontalAlignment="Left" VerticalAlignment="Center"></Rectangle>
+        <Rectangle Fill="Black" Width="5" Height="500" Canvas.Left="179" Canvas.Top="-8" HorizontalAlignment="Left" VerticalAlignment="Center"></Rectangle>
+        <Rectangle Fill="Black" Width="5" Height="500" Canvas.Left="312" Canvas.Top="-8" HorizontalAlignment="Left" VerticalAlignment="Center"></Rectangle>
+
+        <Rectangle Fill="Black" Width="5" Height="285" Canvas.Left="378" Canvas.Top="-54" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="70.057"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
+        <Rectangle Fill="Black" Width="5" Height="285" Canvas.Left="378" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="50">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="70.057"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
+        <Rectangle Fill="Black" Width="5" Height="285" Canvas.Left="378" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="152">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="70.057"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
+        <Rectangle Fill="Black" Width="5" Height="285" Canvas.Left="110" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Top="152">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="109.943"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Fill="Black" Width="5" Height="285" Canvas.Left="110" RenderTransformOrigin="0.5,0.5" Canvas.Top="50" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="109.943"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Fill="Black" Width="5" Height="285" Canvas.Left="110" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Top="-43">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="109.943"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Fill="Black" Width="5" Height="285" Canvas.Left="114" RenderTransformOrigin="0.5,0.5" Canvas.Top="240" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="109.943"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Fill="Black" Width="5" Height="285" Canvas.Left="378" RenderTransformOrigin="0.5,0.5" Canvas.Top="238" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="70.057"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Fill="Black" Width="5" Height="285" Canvas.Left="378" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="-143">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="70.057"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Fill="Black" Width="5" Height="285" Canvas.Left="110" RenderTransformOrigin="0.5,0.5" Canvas.Top="-143" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="109.943"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Panel.ZIndex="5" Fill="Black" Width="105" Height="66" Canvas.Top="87" RenderTransformOrigin="0.5,0.5" Canvas.Left="292" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="138.519"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Panel.ZIndex="5" Fill="Black" Width="105" Height="66" Canvas.Top="159" RenderTransformOrigin="0.5,0.5" Canvas.Left="332" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="160.235"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Panel.ZIndex="5" Fill="Black" Width="105" Height="66" Canvas.Top="246" RenderTransformOrigin="0.5,0.5" Canvas.Left="332" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="191.334"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Panel.ZIndex="5" Fill="Black" Width="105" Height="66" Canvas.Top="320" RenderTransformOrigin="0.5,0.5" Canvas.Left="292" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="219.331"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
+
+        <Rectangle Panel.ZIndex="5" Fill="Black" Width="105" Height="66" Canvas.Top="320" RenderTransformOrigin="0.5,0.5" Canvas.Left="101" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="140.669"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Panel.ZIndex="5" Fill="Black" Width="105" Height="66" Canvas.Top="246" RenderTransformOrigin="0.5,0.5" Canvas.Left="57" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="168.666"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Panel.ZIndex="5" Fill="Black" Width="105" Height="66" Canvas.Top="159" RenderTransformOrigin="0.5,0.5" Canvas.Left="58" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="19.765"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Panel.ZIndex="5" Fill="Black" Width="105" Height="66" Canvas.Top="87" RenderTransformOrigin="0.5,0.5" Canvas.Left="100" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="41.481"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
+
+        <Rectangle  Panel.ZIndex="-1" Fill="DarkRed" Width="608" Height="203" Canvas.Left="-189" Canvas.Top="162" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="63.466"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
+
+
+    </Canvas>
+</Window>

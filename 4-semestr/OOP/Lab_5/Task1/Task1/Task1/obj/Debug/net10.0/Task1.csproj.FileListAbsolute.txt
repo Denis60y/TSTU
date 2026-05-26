@@ -12,3 +12,4 @@ D:\TSTU\4-semestr\OOP\Lab_5\Task1\Task1\Task1\obj\Debug\net10.0\refint\Task1.dll
 D:\TSTU\4-semestr\OOP\Lab_5\Task1\Task1\Task1\obj\Debug\net10.0\Task1.pdb
 D:\TSTU\4-semestr\OOP\Lab_5\Task1\Task1\Task1\obj\Debug\net10.0\Task1.genruntimeconfig.cache
 D:\TSTU\4-semestr\OOP\Lab_5\Task1\Task1\Task1\obj\Debug\net10.0\ref\Task1.dll
+D:\TSTU\4-semestr\OOP\Lab_5\Task1\Task1\Task1\obj\Debug\net10.0\Task1.sourcelink.json

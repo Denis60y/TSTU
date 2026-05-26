@@ -216,7 +216,7 @@ namespace Task2
                     }
                     else if (lastShapeType == "Прямая")
                     {
-                        if (lastDrawOutline) g.DrawLine(pen, r, 0, r + size, 0);
+                        if (lastDrawOutline) g.DrawLine(pen, 0, 0, 225, 450);
                     }
                 }
             }
@@ -280,6 +280,17 @@ namespace Task2
             trackBar3.Value = 100; 
             trackBar4.Value = 100; 
             trackBar5.Value = 0;   
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Refresh();
+
+            Graphics g = Graphics.FromImage(bmp);
+
+            Pen pen = new Pen(Color.Red, 2);
+
+            g.DrawLine(pen, 0, 0, 550, 803);
         }
     }
 }

@@ -51,7 +51,6 @@ namespace Task1
             {
                 MessageBox.Show("Достигнут максимум панелей");
             }
-            
         }
 
         private void button2_Click(object sender, EventArgs e)
