@@ -53,8 +53,8 @@ namespace Task2
                     int G = bmp.GetPixel(i, j).G;
                     int B = bmp.GetPixel(i, j).B;
                     int Gray = (R + G + B) / 3;
-                    Color p = Color.FromArgb(255, 0, 0,
-                        255);
+                    Color p = Color.FromArgb(255, Gray, Gray,
+                        Gray);
                     bmp.SetPixel(i, j, p);
                 }
             Refresh();

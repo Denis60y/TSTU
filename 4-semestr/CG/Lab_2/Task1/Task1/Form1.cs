@@ -97,9 +97,9 @@ namespace Task1
             shearingYMat.MakeShearingY(shy);
 
             Matrix finalMatrix = Matrix.Multiply(scalingMat, shearingXMat);
-            finalMatrix = Matrix.Multiply(finalMatrix, translationMat);
             finalMatrix = Matrix.Multiply(finalMatrix, shearingYMat);
             finalMatrix = Matrix.Multiply(finalMatrix, rotationMat);
+            finalMatrix = Matrix.Multiply(finalMatrix, translationMat);
 
             shape.Transform = finalMatrix;
             shape.ApplyTransform();

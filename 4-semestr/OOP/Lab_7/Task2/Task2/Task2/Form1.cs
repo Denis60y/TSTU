@@ -281,16 +281,5 @@ namespace Task2
             trackBar4.Value = 100; 
             trackBar5.Value = 0;   
         }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            pictureBox1.Refresh();
-
-            Graphics g = Graphics.FromImage(bmp);
-
-            Pen pen = new Pen(Color.Red, 2);
-
-            g.DrawLine(pen, 0, 0, 550, 803);
-        }
     }
 }

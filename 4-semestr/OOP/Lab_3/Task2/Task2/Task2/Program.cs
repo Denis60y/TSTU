@@ -117,55 +117,6 @@ namespace Task2
                     Console.WriteLine(soft[i].Title);
                 }
             }
-            //Console.WriteLine("Сколько копий различного программного обеспечения вы хотите создать:");
-
-            //int n = int.Parse(Console.ReadLine());
-
-            //String title, manufacturer;
-            //int trialDays, price;
-            //for (int i = 0; i < soft.Length; i++) { 
-            //    Console.Clear();
-                //    Console.WriteLine("Какой тип программного обеспечения вы хотите создать:");
-            //    Console.WriteLine(" (1) Свободное программное обеспечение");
-            //    Console.WriteLine(" (2) Условно-бесплатное программное обеспечение");
-            //    Console.WriteLine(" (3) Коммерческое программное обеспечение");
-
-            //    int x = int.Parse(Console.ReadLine());
-
-            //    switch (x) { 
-            //        case 1:
-
-            //            Console.Clear();
-            //            Console.WriteLine("Вы выбрали: Свободное программное обеспечение");
-            //            Console.WriteLine("Введите название программного обеспечения:");
-            //            title = Console.ReadLine();
-            //            Console.WriteLine("Введите производителя программного обеспечения:");
-            //            manufacturer = Console.ReadLine();
-
-            //            soft[i] = new FreeSoftware(title, manufacturer);
-            //            break;
-
-            //        case 2:
-
-            //            Console.Clear();
-            //            Console.WriteLine("Вы выбрали: Свободное программное обеспечение");
-            //            Console.WriteLine("Введите название программного обеспечения:");
-            //            title = Console.ReadLine();
-            //            Console.WriteLine("Введите производителя программного обеспечения:");
-            //            manufacturer = Console.ReadLine();
-            //            Console.WriteLine("Введите название программного обеспечения:");
-            //            data = Console.ReadLine();
-            //            Console.WriteLine("Введите производителя программного обеспечения:");
-            //            trialDays = Console.ReadLine();
-
-            //            soft[i] = new FreeSoftware(title, manufacturer);
-            //            break;
-
-            //        default:
-            //            break;
-            //    }
-            //}
-            
         }
     }
 }

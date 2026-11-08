@@ -1,12 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Task1
@@ -34,6 +28,7 @@ namespace Task1
         public int x1, y1, x2, y2;
 
         Bitmap bmp;
+        int scale = 10;
 
         //-------------------------------------------------------------------
 
@@ -55,11 +50,17 @@ namespace Task1
         {
             Bresenham(int.Parse(textBox1.Text), int.Parse(textBox2.Text), int.Parse(textBox3.Text), int.Parse(textBox4.Text));
 
-            foreach (Point point in points)
+            using (Graphics g = Graphics.FromImage(bmp))
             {
-                if (point.X >= 0 && point.X < bmp.Width && point.Y >= 0 && point.Y < bmp.Height)
+                foreach (Point point in points)
                 {
-                    bmp.SetPixel(point.X, pictureBox1.Height - point.Y, Color.Black);
+                    int screenX = point.X * scale;
+                    int screenY = pictureBox1.Height - (point.Y * scale) - scale;
+
+                    if (screenX >= 0 && screenX < bmp.Width && screenY >= 0 && screenY < bmp.Height)
+                    {
+                        g.FillRectangle(Brushes.Black, screenX, screenY, scale, scale);
+                    }
                 }
             }
 
@@ -70,20 +71,25 @@ namespace Task1
         {
             Wu(int.Parse(textBox1.Text), int.Parse(textBox2.Text), int.Parse(textBox3.Text), int.Parse(textBox4.Text));
 
-            foreach (WuPoint wuPoint in wuPoints)
+            using (Graphics g = Graphics.FromImage(bmp))
             {
-
-                if (wuPoint.X >= 0 && wuPoint.X < bmp.Width && wuPoint.Y >= 0 && wuPoint.Y < bmp.Height)
+                foreach (WuPoint wuPoint in wuPoints)
                 {
+                    int screenX = wuPoint.X * scale;
+                    int screenY = pictureBox1.Height - (wuPoint.Y * scale) - scale;
 
-                    int rgbVal = (int)((1.0 - wuPoint.Intensity) * 255);
+                    if (screenX >= 0 && screenX < bmp.Width && screenY >= 0 && screenY < bmp.Height)
+                    {
+                        int rgbVal = (int)((1.0 - wuPoint.Intensity) * 255);
 
-                    if (rgbVal > 255) rgbVal = 255;
-                    if (rgbVal < 0) rgbVal = 0;
+                        if (rgbVal > 255) rgbVal = 255;
+                        if (rgbVal < 0) rgbVal = 0;
 
-                    Color grayColor = Color.FromArgb(rgbVal, rgbVal, rgbVal);
-
-                    bmp.SetPixel(wuPoint.X, pictureBox1.Height - wuPoint.Y, grayColor);
+                        using (Brush brush = new SolidBrush(Color.FromArgb(rgbVal, rgbVal, rgbVal)))
+                        {
+                            g.FillRectangle(brush, screenX, screenY, scale, scale);
+                        }
+                    }
                 }
             }
 
@@ -95,11 +101,17 @@ namespace Task1
         {
             BresenhamCircle(int.Parse(textBox1.Text), int.Parse(textBox2.Text), int.Parse(textBox5.Text));
 
-            foreach (Point cpoint in circlepoints)
+            using (Graphics g = Graphics.FromImage(bmp))
             {
-                if (cpoint.X >= 0 && cpoint.X < bmp.Width && cpoint.Y >= 0 && cpoint.Y < bmp.Height)
+                foreach (Point cpoint in circlepoints)
                 {
-                    bmp.SetPixel(cpoint.X, pictureBox1.Height - cpoint.Y, Color.Black);
+                    int screenX = cpoint.X * scale;
+                    int screenY = pictureBox1.Height - (cpoint.Y * scale) - scale;
+
+                    if (screenX >= 0 && screenX < bmp.Width && screenY >= 0 && screenY < bmp.Height)
+                    {
+                        g.FillRectangle(Brushes.Black, screenX, screenY, scale, scale);
+                    }
                 }
             }
 
@@ -112,8 +124,7 @@ namespace Task1
             {
                 g.Clear(Color.White);
             }
-
-            pictureBox1.Refresh();
+            pictureBox1.Image = bmp;
         }
 
         //---------------------------------------------------------------------------
